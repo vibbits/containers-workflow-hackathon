@@ -1,4 +1,4 @@
-# Containers & workflows lesson hackaton
+# Containers & workflows lesson hackathon
 This is a draft repository for organizing and collecting training materials for the containers &amp; workflow pipelines course. 
 
 ## Background information
