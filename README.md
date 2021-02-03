@@ -30,6 +30,7 @@ In alphabetical order:
 - Mateusz Kuzak (eScience Center, NL)
 - Maxime Garcia (Nf-core, SE)
 - Michael R. Crusoe (CWL, DE)
+- Pedro Fernandes (The Gulbenkian Training Programme in Bioinformatics, PT)
 - Renuka Kudva (Nf-core, SE)
 - Sarah Bonnin (Centre for Genomic Regulation Barcelona, ES)
 - Toni Harmoso Pulido (Centre for Genomic Regulation Barcelona, ES)
