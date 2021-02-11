@@ -7,12 +7,18 @@ The ELIXIR Training Platform ran a survey in 2019 to identify potential gaps in 
 ## Overview hackaton program: 
 Hackaton on two different days:
 will be focused on drafting a framework for practical training materials, including defining training goals, expected outcomes, and participants’ profile
-- First day: drafting a framework for practical training materials, defining learning objectives, collect existing materials, define participants' profile, etc. Date TBC from [Doodle](https://doodle.com/poll/6qk622ycr7hwxfxv?utm_source=poll&utm_medium=link). 
-- Second day: purpose of finalizing the materials and designing exercises for hands-on training. Date TBC with hackaton leads. 
+- First day: drafting a framework for practical training materials, defining learning objectives, collect existing materials, define participants' profile, etc. 
+    - Date: 10 February 2021
+    - [Contribution document](https://docs.google.com/document/d/1bRVBccvT_HTrBn-YOcH7JolTN72rtWV-/edit#)
+- Second day: purpose of finalizing the materials and designing exercises for hands-on training. 
+    - Date: Join us by filling in the [Doodle](https://doodle.com/poll/htsshgq6zuhwr9e9?utm_source=poll&utm_medium=link)  
+    - Materials contributions (TBC)
 
 Materials authored during the hackathon will be publicly available through GitHub, under a CC-BY license, to be reused both within and outside ELIXIR.
 
-For any questions and/or clarifications, please reach out to the main organizer of the hackathon Tuur Muyldermans (VIB Bioinformatics Core, ELIXIR Belgium) – tuur.muyldermans@vib.be
+For any questions and/or clarifications, please reach out to the main organizers of the hackathon 
+- Alexander Botzki (VIB Bioinformatics Core, ELIXIR Belgium) - alexander.botzki@vib.be
+- Tuur Muyldermans (VIB Bioinformatics Core, ELIXIR Belgium) - tuur.muyldermans@vib.be
 
 ## Hackathon leads 
 In alphabetical order:
