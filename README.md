@@ -11,7 +11,7 @@ will be focused on drafting a framework for practical training materials, includ
     - Date: 10 February 2021
     - [Contribution document](https://docs.google.com/document/d/1bRVBccvT_HTrBn-YOcH7JolTN72rtWV-/edit#)
 - Second day: purpose of finalizing the materials and designing exercises for hands-on training. 
-    - Date: Join us by filling in the [Doodle](https://doodle.com/poll/htsshgq6zuhwr9e9?utm_source=poll&utm_medium=link)  
+    - Date: 6 April 2021   
     - Materials contributions (TBC)
 
 Materials authored during the hackathon will be publicly available through GitHub, under a CC-BY license, to be reused both within and outside ELIXIR.
