@@ -12,7 +12,9 @@ will be focused on drafting a framework for practical training materials, includ
     - [Contribution document](https://docs.google.com/document/d/1bRVBccvT_HTrBn-YOcH7JolTN72rtWV-/edit#)
 - Second day: purpose of finalizing the materials and designing exercises for hands-on training. 
     - Date: 6 April 2021   
-    - Materials contributions (TBC)
+    - Contribution documents are online available at hackmd.io and can updates are automatically pushed to the markdown documents in the [materials](./materials/) directory. 
+         - containers training materials on [hackmd](https://hackmd.io/krqYgepjTN-f0F_9hptJNA)
+         - workflow pipelines training materials on [hackmd](https://hackmd.io/VSl5XYN9SYSYTIA6HQMeMg) 
 
 Materials authored during the hackathon will be publicly available through GitHub, under a CC-BY license, to be reused both within and outside ELIXIR.
 
