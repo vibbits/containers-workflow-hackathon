@@ -19,8 +19,8 @@ will be focused on drafting a framework for practical training materials, includ
 Materials authored during the hackathon will be publicly available through GitHub, under a CC-BY license, to be reused both within and outside ELIXIR.
 
 For any questions and/or clarifications, please reach out to the main organizers of the hackathon 
-- Alexander Botzki (VIB Bioinformatics Core, ELIXIR Belgium) - alexander.botzki@vib.be
-- Tuur Muyldermans (VIB Bioinformatics Core, ELIXIR Belgium) - tuur.muyldermans@vib.be
+- Alexander Botzki (VIB Bioinformatics Core, ELIXIR Belgium) - alexander.botzki@vib.be (temporarily alternative: alexander.botzki@ugent.be)
+- Tuur Muyldermans (VIB Bioinformatics Core, ELIXIR Belgium) - tuur.muyldermans@vib.be (temporarily alternative: tuur.muyldermans@ugent.be)
 
 ## Hackathon leads 
 In alphabetical order:
