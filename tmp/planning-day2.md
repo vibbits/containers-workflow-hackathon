@@ -3,7 +3,7 @@
 Logistics
 - [Zoom URL](https://zoom.us/j/97885672891?pwd=UTJ1bWtLbnQ0dEZGR0RTQkNSMjBndz09)
 - [Lesson repository](https://github.com/vibbits/containers-workflow-hackathon)
-
+- [This overview](https://hackmd.io/U7obAY5DTIyT85scmRMwlQ)
 
 Schedule
 - 09:15 CET (zoom session starts)
@@ -16,6 +16,10 @@ Schedule
 - (15:30: Report in case necessary)
 - 16:30: Main room: Report out, wrap-up time and road ahead
 - 17:00: End of hackathon
+
+Who's here:
+- Tuur Muyldermans | ELIXIR Belgium & VIB Bioinformatics Core | github: @tmuylder | twitter: / 
+
 
 ## Previously on: C&W training materials hackathon
 
@@ -40,7 +44,7 @@ Two persona's: user vs developer. For each persona:
 - Training materials: outline of exercises
 
 
-## Idea
+## Plan for today
 
 Focus on developing modular training materials exercises which together make up for a nice story:
 - Exercise
@@ -69,3 +73,7 @@ Focus on developing modular training materials exercises which together make up 
 |          Workflows         |    1    |        Sarah Bonnin, Toni Hermoso Pulido, Renuka Kudva, Tuur Muyldermans       |
 |          Workflows         |    2    |               Luca Cozzuto, Jose Espinosa-Carrasco, Maxime Garcia              |
 
+## Way of working
+Contribution documents are online available at hackmd.io and can updates are automatically pushed to the markdown documents in the materials directory.
+- Containers training materials on [hackmd](https://hackmd.io/krqYgepjTN-f0F_9hptJNA)
+- Workflow pipelines training materials on [hackmd](https://hackmd.io/VSl5XYN9SYSYTIA6HQMeMg)
