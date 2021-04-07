@@ -62,6 +62,9 @@ Contributors: Alexander Botzki, Marko Vidak, Mateusz Kuzak, Geert van Geest, Ped
 
 ### Training materials
 Outline: 
+
+- intermediate example, not covered by the Carpentries lesson: running a Jupyter notebook 
+
 - Find a image from docker hub containing bwa 
 (ex: https://hub.docker.com/r/biocontainers/bwa)
 - Exercise: Align reads in file `x.fastq.gz` to reference genome `y.fa` using this container with the latest BWA version from dockerhub, write the alignments to `aln-pe.sam` file: `bwa mem ref.fa read1.fq read2.fq > aln-pe.sam`
@@ -105,6 +108,58 @@ Outline:
 
 
 ### Training materials
+Use [Carpentries Docker lesson](https://carpentries-incubator.github.io/docker-introduction/) as a starting point
+
+
+```sh
+docker run \
+--rm \
+--name fastqc0119 \
+-u="$(id -u):$(id -g)" \
+-w="/data/" \
+--mount type=bind,source=~/workshop-janssen/data/,target=/data \
+quay.io/biocontainers/fastqc:0.11.9--0 \
+fastqc WT1.fq.gz
+```
+Outline: executing bioinformatics tool on local file
+
+- exercise
+    - download example files from s3 or anywhere else
+    - specific to Linux / MacOS behaves differently
+    - `docker run --rm -u="$(id -u)" quay.io/biocontainers/fastqc:0.11.9--0 touch examplefile`
+    - default owner of Linux is 'root'
+    - explain user and group ID
+    - see [Geert's course](https://sib-swiss.github.io/containers-introduction-training/course_material/managing_docker/#mounting-a-directory)
+    - introduce user option 
+    - `docker run --rm -u="$(id -u)" quay.io/biocontainers/fastqc:0.11.9--0 touch file1`
+    - `docker run --rm -u="$(id -u):$(id -g)" quay.io/biocontainers/fastqc:0.11.9--0 touch file2`
+    - learn how to know where the working directory of the image is
+    - default is '/'
+    - `docker inspect quay.io/biocontainers/fastqc:0.11.9--0 | grep 'WorkingDir'`
+    - or `docker run --rm -it quay.io/biocontainers/fastqc:0.11.9--0`
+    - ` inside the container: pwd'`
+    - https://docs.docker.com/engine/reference/run
+    - comment on entrypoint/cmd 
+    - introduce working directory option -w 
+    - we recommand to use full command e.g. `fastqc W1.fq.qz`
+
+
+Outline: executing bioinformatics tool on local files
+
+- Dockerfile: alpine, bwa, resolve dependencies, ...
+- two person exercise:
+    - image on docker hub 
+    - produce a visualisation which is exported to png
+    - write a Dockerfile which will create an image with a specific version of [tool] build from source with resolved dependencies, other can run this as command line tool with the parameters provided on CLI
+    - put it on Docker Hub
+    - requires specific python dependencies
+    - default command and entrypoint
+
+
+
+
+
+
 Outline: containerize something, container Dockerfile
 
 - exercises 
@@ -118,8 +173,10 @@ Outline: containerize something, container Dockerfile
     - image on docker hub 
     - produce a visualisation which is exported to png
 
+## Notes
+- need a short section on other container registries: biocontainers, quay.io (supports podman and rkt) etc. Also to mention [open containers initiative](https://opencontainers.org/)
 
-
+- Discussion about reproducibility, tagging and export of images.
 
 ## Contribution notes
 This Markdown-file can be collaboratively and simultaneously edited from [this link](https://hackmd.io/@tmuylder/H1CSvMFZ_/edit).  
