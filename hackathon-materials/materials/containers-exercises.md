@@ -1,3 +1,4 @@
+[![hackmd-github-sync-badge](https://hackmd.io/YHvahRO6QHmA5MT_ErCvAg/badge)](https://hackmd.io/YHvahRO6QHmA5MT_ErCvAg)
 ## Learning outcomes
 
 **After having completed this chapter you will be able to:**
