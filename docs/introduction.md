@@ -17,9 +17,9 @@ Hackathon found place on two different day, the master repository is available a
     - [Contribution document](https://docs.google.com/document/d/1bRVBccvT_HTrBn-YOcH7JolTN72rtWV-/edit#)
 - Second day: purpose of finalizing the materials and designing exercises for hands-on training. 
     - Date: 6 April 2021  
-    - [Draft program](../hackathon-materials/planning-day2.md)
+    - [Draft program](https://github.com/vibbits/containers-workflow-hackathon/blob/master/hackathon-materials/planning-day2.md)
     - Contribution documents were online edited at hackmd.io, the final documents were pushed as Markdown files into the GitHub repository.    
-         - [outline containers training materials](../hackathon-materials/materials/containers-materials.md) & [exercises](../hackathon-materials/materials/containers-exercises.md)
-         - [outline workflow pipelines training materials](../hackathon-materials/materials/workflows-materials.md) & [exercises](../hackathon-materials/materials/workflows-exercises.md)
+         - [outline containers training materials](https://github.com/vibbits/containers-workflow-hackathon/blob/master/hackathon-materials/materials/containers-materials.md) & [exercises](https://github.com/vibbits/containers-workflow-hackathon/blob/master/hackathon-materials/materials/containers-exercises.md)
+         - [outline workflow pipelines training materials](.https://github.com/vibbits/containers-workflow-hackathon/blob/master/hackathon-materials/materials/workflows-materials.md) & [exercises](https://github.com/vibbits/containers-workflow-hackathon/blob/master/hackathon-materials/materials/workflows-exercises.md)
 
 
