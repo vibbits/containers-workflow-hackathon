@@ -14,11 +14,9 @@ This set of tutorials and exercises does not aim to give you a thorough understa
 ```
 
 
-## Courses: LINKS!
+## Courses
 - [Containers](https://containers-workflows.readthedocs.io/en/latest/containers/index.html)
 - [Workflow pipelines](https://containers-workflows.readthedocs.io/en/latest/workflows/index.html)
-
-
 
 
 ```{toctree}

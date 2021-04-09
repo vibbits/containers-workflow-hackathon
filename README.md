@@ -1,6 +1,5 @@
 # Containers & workflows lesson hackathon
-This repository contains all practical information regarding the containers &amp; workflow pipelines training materials hackathon. A website was generated containing the created materials in an overviewable way and is available [here](LINK). 
-[ LINK ]
+This repository contains all practical information regarding the containers &amp; workflow pipelines training materials hackathon. A website was generated containing the created materials in an overviewable way and is available [here](https://containers-workflows.readthedocs.io/en/latest/). 
 
 ## Background information
 The ELIXIR Training Platform ran a survey in 2019 to identify potential gaps in training courses and materials with containers and workflow pipelines considered to be one of the major identified gaps. The aim of the hackathon is to develop training materials and relevant use-cases, freely available and useful for 1) organizing courses on the topic and 2) self-learning. A plethora of choices exist as to which technologies that can be used regarding containers and workflow pipelines, however with recent increase in the popularity of Docker and Singularity containers and Nextflow pipelines, these are being put forward as technologies. 
