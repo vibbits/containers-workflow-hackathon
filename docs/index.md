@@ -25,6 +25,7 @@ This set of tutorials and exercises does not aim to give you a thorough understa
 :hidden:
 :caption: Courses
 
+existing-materials
 workflows/index
 containers/index
 ```
