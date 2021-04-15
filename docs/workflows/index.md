@@ -2,6 +2,8 @@
 
 The importance of running reproducible and automated data analysis and Nextflow is gaining traction by a wide community of Life Sciences researchers and bioinformaticians to do this. Current tutorials often focus on writing your own basic pipelines, however it is not always necessary to reinvent the wheel. This tutorial and set of exercises will guide you through your first steps on how to use pipelines that are available on the internet. 
 
+Besides Nextflow, we would also like to stress the importance of other workflow languages like [Snakemake](https://snakemake.readthedocs.io/en/stable/) and [Common Workflow Language (CWL)](https://www.commonwl.org/). A list of tutorials and workshop materials on the former is available in the [existing materials](https://containers-workflows.readthedocs.io/en/latest/existing-materials.html) page, for the latter we refer to the current efforts of the training materials being developed in the [Carpentries](https://carpentries.org/) style by the CWL community to teach workflow thinking to novices.
+
 ## Content
 
 
