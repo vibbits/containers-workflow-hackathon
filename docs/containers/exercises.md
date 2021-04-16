@@ -36,18 +36,56 @@ tar -xzvf ecoli_reads.tar.gz
 
 ## 3. Manage file ownership while bind mounting a local directory
 
+A docker container image is run with the following command:
+```
+docker run <options> <image-name>:<version> [command] 
+```
+with `<image-name>:<version>` being `quay.io/biocontainers/fastqc:0.11.9--0`. The first time you are trying to run this command, the image is not available locally, hence it will be downloaded from its repository. 
+
+There are a lot of available parameters that specify how the docker container is being run, to have an overview, type `docker run --help`. 
+
+Docker containers are fully isolated. It is necessary to mount volumes in order to handle input/output files. By default, Docker containers cannot access data on the host system. This means that:
+- we can’t use host data in the containers
+- all data stored in the container will be lost when the container exits
+
+This can be solved in two ways:
+- `-v /path/in/host:/path/in/container`: This **bind mounts** a host file or directory into the container. Note that both paths have to be absolute paths, so you often want to use `$(pwd)`. 
+- `-v volume_name:/path/in/container`. This mounts a **named volume** into the container, which will live separately from the rest of your files. This is preferred, unless you need to access or edit the files from the host.
+
+
+````{note}
+To have an overview of all the images locally available, use:
+```
+docker images
+```
+To have an overview of all running containers:
+```
+docker ps
+```
+We can stop and subsequently remove a running container with 
+```
+docker stop <container-id>
+docker rm <container-id>
+```
+````
+
 ````{admonition} Exercises
 :class: note
 
-3.1 Run a docker container and approach it interactively. In addition, mount your current directory to `/data` within the Docker container `quay.io/biocontainers/fastqc:0.11.9--0`.  
+3.1 Run a docker container and approach it interactively. In addition, mount the directory containing the data to `/data` within the Docker container `quay.io/biocontainers/fastqc:0.11.9--0`.   
 
 
 ```{warning}
 Don't mount a directory that contains a lot of files or subdirectories (like `~`)
 ``` 
+```` 
+
+The following three exercises aim to give an idea of how folders and files are managed on your computer locally as opposed to our Docker containers. Try to answer the following questions and think about how the 
+
+````{admonition} Exercises
+:class: note
 
 3.2 Who is the default user within the container?  
- - Type `whoami`. This will give you `root`. 
 
 ````
 
@@ -90,13 +128,20 @@ id -g
 ````{admonition} Exercises
 :class: note
 
-3.6 Execute a docker container by using the `-u` option and creating a temporary file `file3.txt` with `touch`. In addition, mount your current directory to `/data` within the Docker container `quay.io/biocontainers/fastqc:0.11.9--0`
+3.6 Execute a docker container by using the `-u` option and and in the meantime creating a temporary file `file3.txt` with `touch`. In addition, mount your current directory to `/data` within the Docker container `quay.io/biocontainers/fastqc:0.11.9--0`
 Check the file permissions of this file in the container.  
-
 
 ````
 
+After these exercises it should be clear that docker containers will output files at `root`-level by default, however that we can overcome this behaviour by using the user ID and group ID levels on run-time. To generalize this command over different infrastructures (with possible different settings) we can provide it the following parameter `--user $(id -u):(id -g)`. 
+
 ## 4. Using working directories 
+
+The *working directory* sets the location for running instructions (installations, commands, file copying, etc.) defined in the `Dockerfile`. The working directory is described in the `Dockerfile` with:
+```
+WORKDIR /path/to/workdir
+```
+As an example, have a look at the Dockerfile of our `fastqc` container [here](https://github.com/BioContainers/containers/blob/master/fastqc/0.11.9/Dockerfile). 
 
 ````{admonition} Exercises
 :class: note
@@ -106,18 +151,11 @@ Check the file permissions of this file in the container.
 
 ````
 
-````{admonition} Exercises
-:class: note
-
-4.2 Execute a docker container and creating a temporary file `file5.txt` with `touch`. In addition, mount your current directory to `/workdir` within the Docker container `quay.io/biocontainers/fastqc:0.11.9--0`. Check the file location of this file in the container.
-
-
-````
 
 ````{admonition} Exercises
 :class: note
 
-4.3 Use the command `docker inspect` on the current image `quay.io/biocontainers/fastqc:0.11.9--0` and extract the working directory (`WorkingDir`) using `grep`.
+4.2 Use the command `docker inspect` on the current image `quay.io/biocontainers/fastqc:0.11.9--0` and extract the working directory (`WorkingDir`) using `grep`.
 
 
 ````
@@ -126,17 +164,16 @@ Check the file permissions of this file in the container.
 ````{admonition} Exercises
 :class: note
 
-4.4 Execute a docker container with your user and group ID running `fastqc` on the file `WTXXX.fq.gz`. In addition, mount your current directory to the default working directory within the Docker container `quay.io/biocontainers/fastqc:0.11.9--0`. Verify that the HTML report is created with the correct file permissions.
-
-
+4.3 Execute a docker container with your user and group ID running `fastqc` on the file `WTXXX.fq.gz`. In addition, mount your current directory to the default working directory within the Docker container `quay.io/biocontainers/fastqc:0.11.9--0`. Verify that the HTML report is created with the correct file permissions.
 
 ````
+
 
 
 ````{admonition} Exercises
 :class: note
 
-4.5 Go to [Biocontainers.pro](https://biocontainers.pro/) and find the Docker image of `trimmomatic`. In addition, mount your current directory to the default working directory within the Docker container of `trimmomatic`. Verify that the HTML report is created with the correct file permissions.
+4.4 Go to [Biocontainers.pro](https://biocontainers.pro/) and find the Docker image of `trimmomatic`. In addition, mount your current directory to the default working directory within the Docker container of `trimmomatic`. Verify that the HTML report is created with the correct file permissions.
 
 For this you can use the following set of parameters:
 
@@ -150,6 +187,7 @@ For this you can use the following set of parameters:
     LEADING:5 \
     TRAILING:5 \
     MINLEN:25
+
 
 
 

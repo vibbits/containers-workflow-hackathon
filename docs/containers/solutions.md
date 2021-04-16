@@ -17,8 +17,8 @@ tar -xzvf ecoli_reads.tar.gz
 ````{admonition} Exercises
 :class: note
 
-3.1 Run a docker container and approach it interactively. In addition, mount your current directory to `/data` within the Docker container `quay.io/biocontainers/fastqc:0.11.9--0`.  
- - `docker run --rm -it -v ~/data/:/data quay.io/biocontainers/fastqc:0.11.9--0 /bin/bash`
+3.1 Run a docker container and approach it interactively. In addition, mount the directory containing the data to `/data` within the Docker container `quay.io/biocontainers/fastqc:0.11.9--0`.  
+ - `docker run --rm -it -v $(pwd)/data/:/data quay.io/biocontainers/fastqc:0.11.9--0 /bin/bash`
 
 ```{warning}
 Don't mount a directory that contains a lot of files or subdirectories (like `~`)
@@ -73,11 +73,11 @@ id -g
 ````{admonition} Exercises
 :class: note
 
-3.6 Execute a docker container by using the `-u` option and creating a temporary file `file3.txt` with `touch`. In addition, mount your current directory to `/data` within the Docker container `quay.io/biocontainers/fastqc:0.11.9--0`
+3.6 Execute a docker container by using the `-u` option and in the meantime creating a temporary file `file3.txt` with `touch`. In addition, mount your current directory to `/data` within the Docker container `quay.io/biocontainers/fastqc:0.11.9--0`
 Check the file permissions of this file in the container.  
 
  - By using this command line, enter your UID and GID 
-`docker run --rm -u=<your UID>:<your GID> quay.io/biocontainers/fastqc:0.11.9--0 touch file3.txt`
+`docker run --rm -u <your UID>:<your GID> quay.io/biocontainers/fastqc:0.11.9--0 touch file3.txt`
 
  - Especially, on your Linux host, verify the file permissions of the file `file3.txt`.
 
@@ -90,24 +90,15 @@ Check the file permissions of this file in the container.
 
 4.1 Execute a docker container by using the working directory option `-w` for a directory `/workdir` and creating a temporary file `file4.txt` with `touch`. In addition, mount your current directory to `/workdir` within the Docker container `quay.io/biocontainers/fastqc:0.11.9--0`. Check the file location of this file in the container.
 
- - `docker run --rm -v $(pwd):/workdir -w /workdir -u=1000:1000 biocontainers/fastqc:v0.11.9_cv7 touch file4.txt`
+ - `docker run --rm -v $(pwd):/workdir -w /workdir -u 1000:1000 quay.io/biocontainers/fastqc:0.11.9--0 touch file4.txt`
 
 ````
+
 
 ````{admonition} Exercises
 :class: note
 
-4.2 Execute a docker container and creating a temporary file `file5.txt` with `touch`. In addition, mount your current directory to `/workdir` within the Docker container `quay.io/biocontainers/fastqc:0.11.9--0`. Check the file location of this file in the container.
-
- - `docker run --rm -v $(pwd):/workdir -u=1000:1000 biocontainers/fastqc:v0.11.9_cv7 touch file5.txt`
-
-
-````
-
-````{admonition} Exercises
-:class: note
-
-4.3 Use the command `docker inspect` on the current image `quay.io/biocontainers/fastqc:0.11.9--0` and extract the working directory (`WorkingDir`) using `grep`.
+4.2 Use the command `docker inspect` on the current image `quay.io/biocontainers/fastqc:0.11.9--0` and extract the working directory (`WorkingDir`) using `grep`.
 
  - `docker inspect quay.io/biocontainers/fastqc:0.11.9--0 | grep 'WorkingDir'`
 ````
@@ -116,25 +107,29 @@ Check the file permissions of this file in the container.
 ````{admonition} Exercises
 :class: note
 
-4.4 Execute a docker container with your user and group ID running `fastqc` on the file `WTXXX.fq.gz`. In addition, mount your current directory to the default working directory within the Docker container `quay.io/biocontainers/fastqc:0.11.9--0`. Verify that the HTML report is created with the correct file permissions.
+4.3 Execute a docker container with your user and group ID running `fastqc` on the file `WTXXX.fq.gz`. In addition, mount your current directory to the default working directory within the Docker container `quay.io/biocontainers/fastqc:0.11.9--0`. Verify that the HTML report is created with the correct file permissions.
 
 ```sh
 # Solution
 docker run \
 --rm \
--u="$(id -u):$(id -g)" \
---mount type=bind,source=$(pwd)/data/,target=/data \
+-u "$(id -u):$(id -g)" \
+-w /data
+-v $(pwd)/data/:/data
 quay.io/biocontainers/fastqc:0.11.9--0 \
 fastqc WT1.fq.gz
 ```
-
+Or instead of `-v`/`--volume`, use `--mount`:
+```
+--mount type=bind,source=$(pwd)/data/,target=/data \
+```
 ````
 
 
 ````{admonition} Exercises
 :class: note
 
-4.5 Go to [Biocontainers.pro](https://biocontainers.pro/) and find the Docker image of `trimmomatic`. In addition, mount your current directory to the default working directory within the Docker container of `trimmomatic`. Verify that the HTML report is created with the correct file permissions.
+4.4 Go to [Biocontainers.pro](https://biocontainers.pro/) and find the Docker image of `trimmomatic`. In addition, mount your current directory to the default working directory within the Docker container of `trimmomatic`. Verify that the HTML report is created with the correct file permissions.
 
 For this you can use the following set of parameters:
 
@@ -168,6 +163,27 @@ SLIDINGWINDOW:4:5 \
 LEADING:5 \
 TRAILING:5 \
 MINLEN:25
+```
+
+With the example data from this exercise, this results in the following command:
+```
+docker run \
+--rm \
+-u="$(id -u):$(id -g)" \
+--mount type=bind,source=$(pwd)/data/,target=/data \
+quay.io/biocontainers/trimmomatic:0.35--6 \
+trimmomatic \
+SE \
+-threads 1 \
+-phred33 \
+data/ecoli_1.fastq.gz \
+data/ecoli_1_trimmed.fastq.gz  \
+ILLUMINACLIP:$ADAPTERS:2:30:10 \
+SLIDINGWINDOW:4:5 \
+LEADING:5 \
+TRAILING:5 \
+MINLEN:25
+
 ```
 
 ````
